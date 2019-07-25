@@ -11,6 +11,8 @@ import './assets/js/bootstrap.min'
 import './lib/mui/css/mui.min.css'
 import'./lib/mui/css/icons-extra.css'
 import './css/hello.css'
+import VueResource from 'vue-resource'
+Vue.use(VueResource)
 Vue.use(MintUI)
 
 Vue.config.productionTip = false

@@ -2,8 +2,10 @@
   <div id="app">
 <!--    <img src="./assets/logo.png">-->
 <!--    <HelloWorld/>-->
-    <Home/>
     <mt-header fixed title="黑马程序员·Vue项目"></mt-header>
+    <transition>
+<router-view></router-view>
+    </transition>
     <nav class="mui-bar mui-bar-tab">
       <router-link class="mui-tab-item" to="/home">
         <span class="mui-icon mui-icon-home"></span>
@@ -27,12 +29,15 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld'
-import Home from './components/Home'
+  import Home from './components/Home'
+  import Member from './components/Member'
+  import Shopcar from './components/Shopcar'
+  import Search from './components/Search'
 export default {
   name: 'App',
   components: {
     // HelloWorld
-    Home
+    // Home
   }
 }
 </script>
@@ -44,6 +49,19 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  margin-top: 40px;
+  overflow-x: hidden;
 }
+  .v-enter{
+    opacity: 0;
+    transform: translateX(100%);
+  }
+.v-leave-to{
+  opacity: 0;
+  transform: translateX(-100%);
+  position: absolute;
+}
+  .v-enter-active,.v-leave-active{
+    transition: all 0.5s ease;
+  }
 </style>
