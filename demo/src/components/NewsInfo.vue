@@ -7,10 +7,12 @@
     </p>
     <hr/>
     <div v-html="newsinfo.content"></div>
+    <Comment :id="this.id"></Comment>
   </div>
 </template>
 
 <script>
+  import Comment from './Comment'
   import {Toast} from 'mint-ui'
     export default {
         name: "NewsInfo",
@@ -33,7 +35,10 @@
               }
               })
             }
-          }
+          },
+      components:{
+          Comment
+      }
       }
 
 </script>
