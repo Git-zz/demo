@@ -13,8 +13,12 @@ import'./lib/mui/css/icons-extra.css'
 import './css/hello.css'
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+Vue.http.options.root='http://www.liulongbin.top:3005'
 Vue.use(MintUI)
-
+import moment from 'moment'
+Vue.filter('dateFormat',function (dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
+  return moment().format(pattern)//moment()里什么都不放，获取的是当前时间
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

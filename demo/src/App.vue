@@ -33,6 +33,8 @@
   import Member from './components/Member'
   import Shopcar from './components/Shopcar'
   import Search from './components/Search'
+  import NewsList from './components/NewsList'
+  import NewsInfo from './components/NewsInfo'
 export default {
   name: 'App',
   components: {
@@ -47,9 +49,9 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 40px;
+  padding-top: 40px;
+  padding-bottom: 50px;
   overflow-x: hidden;
 }
   .v-enter{
