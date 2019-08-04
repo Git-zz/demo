@@ -7,7 +7,7 @@
       </p>
       <hr/>
       <div class="thumbs">
-      <vue-preview :slides="list" @close="handleClose"></vue-preview>
+      <vue-preview :slides="list" @close="handleClose" :key="list.src"></vue-preview>
       </div>
       <div class="content" v-html="photoinfo.content"></div>
       <Comment :id="this.id"></Comment>

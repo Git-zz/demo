@@ -1,10 +1,11 @@
 <template>
     <div class="home">
-      <mt-swipe :auto="4000">
-        <mt-swipe-item v-for="item in lunbotu" :key="item.id">
-          <img :src="item.img">
-        </mt-swipe-item>
-      </mt-swipe>
+<!--      <mt-swipe :auto="4000">-->
+<!--        <mt-swipe-item v-for="item in lunbotu" :key="item.id">-->
+<!--          <img :src="item.img">-->
+<!--        </mt-swipe-item>-->
+<!--      </mt-swipe>-->
+      <Swiper :lunbotu="lunbotu" :isfull="true"></Swiper>
       <ul class="mui-table-view mui-grid-view mui-grid-9">
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/newslist">
           <img src="../assets/images/menu1.png">
@@ -12,9 +13,9 @@
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/photolist">
           <img src="../assets/images/menu2.png">
           <div class="mui-media-body">图片分享</div></router-link></li>
-        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+        <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><router-link to="/home/goodslist">
           <img src="../assets/images/menu3.png">
-          <div class="mui-media-body">商品购买</div></a></li>
+          <div class="mui-media-body">商品购买</div></router-link></li>
         <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
           <img src="../assets/images/menu4.png">
           <div class="mui-media-body">留言反馈</div></a></li>
@@ -30,6 +31,7 @@
 
 <script>
   import {Toast} from 'mint-ui'
+  import Swiper from './Swiper'
     export default {
         name: "Home",
       data(){
@@ -50,29 +52,32 @@
               }
             })
           }
+      },
+      components:{
+          Swiper
       }
     }
 </script>
 
 <style lang="scss" scoped>
-.mint-swipe{
-  height: 200px;
-  .mint-swipe-item{
-  /*  &:nth-child(1){*/
-  /*    background-color: #31708f;*/
-  /*  }*/
-  /*  &:nth-child(2){*/
-  /*    background-color: #8a6de9;*/
-  /*  }*/
-  /*  &:nth-child(3){*/
-  /*    background-color: #d9534f;*/
-  /*  }*/
-    img{
-      width: 100%;
-      height: 100%;
-    }
-  }
-}
+/*.mint-swipe{*/
+/*  height: 200px;*/
+/*  .mint-swipe-item{*/
+/*  !*  &:nth-child(1){*!*/
+/*  !*    background-color: #31708f;*!*/
+/*  !*  }*!*/
+/*  !*  &:nth-child(2){*!*/
+/*  !*    background-color: #8a6de9;*!*/
+/*  !*  }*!*/
+/*  !*  &:nth-child(3){*!*/
+/*  !*    background-color: #d9534f;*!*/
+/*  !*  }*!*/
+/*    img{*/
+/*      width: 100%;*/
+/*      height: 100%;*/
+/*    }*/
+/*  }*/
+/*}*/
 .mui-grid-view.mui-grid-9{
   background-color: #fff;
   border:none;

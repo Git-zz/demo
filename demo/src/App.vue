@@ -37,6 +37,12 @@
   import NewsInfo from './components/NewsInfo'
   import PhotoList from './components/PhotoList'
   import PhotoInfo from './components/PhotoInfo'
+  import GoodsList from './components/GoodsList'
+  import GoodsInfo from './components/GoodsInfo'
+  import Swiper from './components/Swiper'
+  import Goodsinfo_Numbox from './components/Goodsinfo_Numbox'
+  import GoodsDesc from './components/GoodsDesc'
+  import GoodsComment from './components/GoodsComment'
 export default {
   name: 'App',
   components: {
