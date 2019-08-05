@@ -95,7 +95,14 @@
           this.$router.push({ name:"GoodsComment",params:{ id } })
         },
         addToShopCar(){
-            this.ballFlag=!this.ballFlag
+            this.ballFlag=!this.ballFlag;
+            var goodsinfo={
+              id:this.id,
+              count:this.selectedCount,
+              price:this.goodsinfo.sell_price,
+              selected:true
+            }
+            this.$store.commit("addToCar",goodsinfo)
         },
         beforeEnter(el) {
           el.style.transform = 'translate(0, 0)';
@@ -110,10 +117,8 @@
           // 4. 经过分析，得出解题思路： 先得到 徽标的 横纵 坐标，再得到 小球的 横纵坐标，然后 让 y 值 求差， x 值也求 差，得到 的结果，就是横纵坐标要位移的距离
           // 5. 如何 获取 徽标和小球的 位置？？？   domObject.getBoundingClientRect()
 
-          // 获取小球的 在页面中的位置
-          const ballPosition = this.$refs.ball.getBoundingClientRect();
-          // 获取 徽标 在页面中的位置
-          const badgePosition = document
+          const ballPosition = this.$refs.ball.getBoundingClientRect(); // 获取小球的 在页面中的位置
+          const badgePosition = document   // 获取 徽标 在页面中的位置
             .getElementById("badge")
             .getBoundingClientRect();
 

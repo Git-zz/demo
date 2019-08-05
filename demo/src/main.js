@@ -19,6 +19,40 @@ Vue.use(VueResource)
 Vue.http.options.root='http://www.liulongbin.top:3005'
 Vue.http.options.emulateJSON=true
 Vue.use(MintUI)
+import Vuex from 'vuex'
+Vue.use(Vuex)
+var car=JSON.parse(localStorage.getItem('car')||'[]')  //从localstorage中调用数据，防止页面刷新没有数据
+var store=new Vuex.Store({
+  state:{   //相当于data
+    // count:0
+    car:car
+  },
+  mutations:{
+    addToCar(state,goodsinfo){
+      var flag=false
+      state.car.some(item=>{
+        if (item.id==goodsinfo.id){
+          item.count+=parseInt(goodsinfo.count)
+          flag=true
+          return true
+        }
+      })
+      if (!flag){
+        state.car.push(goodsinfo)
+      }
+      localStorage.setItem('car',JSON.stringify(state.car))  //把car数组存储到本地的localstorage中
+    }
+  },
+  getters:{
+    getAllCount(state){
+      var c=0
+      state.car.forEach(item=>{
+        c+=item.count
+      })
+      return c
+    }
+  }
+})
 import moment from 'moment'
 Vue.filter('dateFormat',function (dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
   return moment().format(pattern)//moment()里什么都不放，获取的是当前时间
@@ -29,6 +63,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

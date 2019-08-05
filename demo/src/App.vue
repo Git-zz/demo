@@ -16,7 +16,7 @@
         <span class="mui-tab-label">会员</span>
       </router-link>
       <router-link class="mui-tab-item1" to="/shopcar">
-        <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">0</span></span>
+        <span class="mui-icon mui-icon-extra mui-icon-extra-cart"><span class="mui-badge" id="badge">{{$store.getters.getAllCount}}</span></span>
         <span class="mui-tab-label">购物车</span>
       </router-link>
       <router-link class="mui-tab-item1" to="/search">
@@ -43,6 +43,7 @@
   import Goodsinfo_Numbox from './components/Goodsinfo_Numbox'
   import GoodsDesc from './components/GoodsDesc'
   import GoodsComment from './components/GoodsComment'
+  import Shopcar_Numbox from './components/Shopcar_Numbox'
 export default {
   name: 'App',
   components: {
