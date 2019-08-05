@@ -134,7 +134,7 @@
         },
         getSelectedCount(count){
             this.selectedCount=count;
-            console.log(this.selectedCount)
+            // console.log(this.selectedCount)
         }
       },
       components:{
